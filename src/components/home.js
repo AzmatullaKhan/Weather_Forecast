@@ -12,18 +12,23 @@ function Home(){
         let stormy=require('../gifs/stormy.gif');
         let windy=require('../gifs/windy.gif');
         let snow=require('../gifs/snow.gif');
+        let dust=require('../gifs/dust.gif');
 
         // const element= document.getElementById('search-input').value;
         if(value===""){
             return 0;
         }
+        let data
+        try{
+            let url=`https://api.openweathermap.org/data/2.5/weather?q=${value}&units=Metric&appid=${api_key}`;
+            let response= await fetch(url);
+            data=await response.json();
+            let d=data.weather[0].main;
+        }
+        catch(e){
+            window.location.reload();
 
-        let url=`https://api.openweathermap.org/data/2.5/weather?q=${value}&units=Metric&appid=${api_key}`;
-        let response= await fetch(url);
-        let data=await response.json();
-        console.log(data)
-        console.log(data.weather[0].main);
-
+        }
 
         if(data.weather[0].main.toLowerCase()==="rain"){
             document.getElementById('weather-back').src=rainy;
@@ -43,6 +48,29 @@ function Home(){
         else if(data.weather[0].main.toLowerCase()==="snow"){
             document.getElementById('weather-back').src=snow;
         }
+        else if(data.weather[0].main.toLowerCase()==="dust"){
+            document.getElementById('weather-back').src=dust;
+        }
+        else if(data.weather[0].main.toLowerCase()==="haze"){
+            document.getElementById('weather-back').src=stormy;
+        }
+        else{
+            document.getElementById('weather-back').src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTZzbzU5bzBydmt5ZWVpY3RtM3gzMmN2OHFpcG1zMHQ2ZnVyamd1MCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/GZd8nPH3TcNSU/giphy.gif"
+        }
+
+        try{
+            document.getElementById('place').textContent=value;
+            document.getElementById('temperature').textContent=data.main.temp+"°C";
+            document.getElementById('wmd1').textContent="Weather: "+data.weather[0].main;
+            document.getElementById('wmd2').textContent="Wind Speed: "+data.wind.speed;
+            document.getElementById('wmd3').textContent="Wind Degree: "+data.wind.deg;
+            document.getElementById('wmd4').textContent="Humidity: "+data.main.humidity;
+            document.getElementById('wmd5').textContent="Min temp: "+data.main.temp_min+" Max Temp: "+data.main.temp_max;
+        }
+        catch(e){
+            window.location.reload()
+        }
+
     }
     return(
         <div className='main-container'>
@@ -55,15 +83,15 @@ function Home(){
                     <button onClick={buttonClick}><img src={require('../images/search.png')} alt='search-logo'/></button>
                 </div>
                 <div className='weather-detalis'>
-                    <h1>Place</h1>
-                    <p style={{fontSize:"50px"}}>?°C</p>
+                    <h1 id='place'>Place</h1>
+                    <p style={{fontSize:"50px"}} id='temperature'>?°C</p>
                 </div>
                 <div className='weather-minor-details'>
-                    <p>Weather: ?</p>
-                    <p>Wind Speed: ?</p>
-                    <p>Humidity: ?</p>
-                    <p>Wind Speed: ?</p>
-                    <p>Min Temp: ?, Max Temp: ?</p>
+                    <p id='wmd1'>Weather: ?</p>
+                    <p id='wmd2'>Wind Speed: ?</p>
+                    <p id='wmd3'>Wind degree: ?</p>
+                    <p id='wmd4'>Humidity: ?</p>
+                    <p  id='wmd5'>Min Temp: ?, Max Temp: ?</p>
                 </div>
             </div>
         </div>
