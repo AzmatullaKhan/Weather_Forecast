@@ -1,0 +1,57 @@
+.main-container{
+    height:851px;
+    width:1494px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: #fff;
+}
+.weather-background{
+    height:850px;
+    width: 1490px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top:0;
+}
+.weather-container{
+    height:500px;
+    width:400px;
+    border:4px solid #fff;
+    position: absolute;
+    border-radius: 12px;
+    box-sizing: border-box;
+    padding:12px;
+}
+.search{
+    margin:0;
+    height:60px;
+    width:366px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search-bar{
+    height: 45px;
+    width:280px;
+    background-color: #fff;
+    border-radius: 30px;
+    border:none;
+    outline: none;
+    box-sizing: border-box;
+    padding: 0px 20px;
+    margin: 0 6px;
+    font-size: 14px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+button{
+    border-radius:22px;
+    background-color: transparent;
+    border:none;
+    margin: 0px 6px;
+    outline: none;
+}
