@@ -94,6 +94,9 @@ function Home(){
                     <p  id='wmd5'>Min Temp: ?, Max Temp: ?</p>
                 </div>
             </div>
+            <footer>
+            <p><a href="https://github.com/AzmatullaKhan">Copyright © All Rights Reserved 2024 Azmatulla Khan ®</a></p>
+            </footer>
         </div>
     )
 }

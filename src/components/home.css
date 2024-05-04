@@ -71,3 +71,19 @@ button{
     text-align: center;
     font-weight: bolder;
 }
+footer{
+    width:1500px;
+    height:100px;
+    z-index: 9;
+    position: relative;
+    top:375px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+footer p a{
+    color: #fff;
+    font-weight: bolder;
+}
