@@ -54,8 +54,11 @@ function Home(){
         else if(data.weather[0].main.toLowerCase()==="haze"){
             document.getElementById('weather-back').src=stormy;
         }
+        else if(data.weather[0].main.toLowerCase()==="drizzle"){
+            document.getElementById('weather-back').src=dust;
+        }
         else{
-            document.getElementById('weather-back').src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTZzbzU5bzBydmt5ZWVpY3RtM3gzMmN2OHFpcG1zMHQ2ZnVyamd1MCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/GZd8nPH3TcNSU/giphy.gif"
+            document.getElementById('weather-back').src=require('../gifs/opening.gif')
         }
 
         try{
@@ -76,7 +79,7 @@ function Home(){
         <div className='main-container'>
             {/* <div className='weather-background' id='weather-back'>
             </div> */}
-            <img alt='background' className='weather-background' id='weather-back' src={"https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTZzbzU5bzBydmt5ZWVpY3RtM3gzMmN2OHFpcG1zMHQ2ZnVyamd1MCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/GZd8nPH3TcNSU/giphy.gif"}/>
+            <img alt='background' className='weather-background' id='weather-back' src={require('../gifs/opening.gif')}/>
             <div className='weather-container'>
                 <div className='search'>
                     <input type='text' className='search-bar' placeholder='Enter the region' id='search-input'/>
